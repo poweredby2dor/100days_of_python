@@ -1,3 +1,8 @@
+"""
+This module contains an exercise for 100 Days of Python
+"""
+
+
 print(r'''
 *******************************************************************************
           |                   |                  |                     |
@@ -22,3 +27,22 @@ ____/______/______/______/______/_____"=.o|o_.--""___/______/______/______/____
 ''')
 print("Welcome to Treasure Island.")
 print("Your mission is to find the treasure.")
+
+decision = input("You're at a cross road. Where do you want to go\n        Type 'left' or 'right'\n")
+
+if decision == "left" or decision == "Left":
+    decision = input("You've come to a lake. There is an island in the middle of the lake.\n    Type 'wait to wait for a boat. Type 'swim' to swim across.\n ")
+
+    if decision == "wait" or decision == "Wait":
+        decision = input("A boat came and takes you to the island. Here you find a house with three entrance doors. Choose an entrance you want to use: red, yellow or blue\n ")
+
+        if decision == "yellow" or decision == "Yellow":
+            print("The door opens, the house is empty, but you are still alive. You won the game.")
+        else:
+            print("Game over. The door was booby trapped.")
+
+    else:
+        print("Game over. You drowned.")
+
+else:
+    print("Game over. You've fallen into a hole.")
