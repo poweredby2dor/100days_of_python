@@ -7,7 +7,7 @@ print("Welcome to Python Pizza Deliveries!")
 size = input("What size pizza do you want? S, M or L: ")
 pepperoni = input("Do you want pepperoni on your pizza? Y or N: ")
 extra_cheese = input("Do you want extra cheese? Y or N: ")
-bill = 0
+bill = 15
 
 """
 small pizza 15
@@ -19,19 +19,21 @@ extra cheese +1
 """
 
 if size == "s":
-    bill = 15
     if pepperoni == "y":
         bill += 2
 elif size == "m":
-    bill = 20
+    bill += 5
+    if pepperoni == "y":
+        bill += 3
+elif size == "l":
+    bill += 10
     if pepperoni == "y":
         bill += 3
 else:
-    bill = 25
-    if pepperoni == "y":
-        bill += 3
+    print("Your typed wrong, please check")
+    exit(0)
 
 if extra_cheese == "y":
     bill += 1
 
-print(f"your final bill is ${bill}")
+print(f"Your final bill is ${bill}")

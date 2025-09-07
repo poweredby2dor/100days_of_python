@@ -1,3 +1,8 @@
+"""
+This module contains an exercise for 100 Days of Python
+"""
+
+
 print("Welcome to the rollercoaster!")
 height = int(input("What is your height in cm? "))
 bill = 0
@@ -11,6 +16,10 @@ if height >= 120:
     elif age <= 18:
         bill = 7
         print("Youth tickets are $7.")
+    # Midlife crisis
+    # elif age >= 45 and age <= 55:
+    elif 45 <= age <= 55:
+        print("You can ride for free!")
     else:
         bill = 12
         print("Adult tickets are $12.")
