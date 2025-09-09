@@ -1,3 +1,7 @@
+"""
+This module contains an exercise for 100 Days of Python
+"""
+
 states_of_america = ["Delaware", "Pennsylvania", "New Jersey", "Georgia", "Connecticut", "Massachusetts", "Maryland",
                      "South Carolina", "New Hampshire", "Virginia", "New York", "North Carolina", "Rhode Island",
                      "Vermont", "Kentucky", "Tennessee", "Ohio", "Louisiana", "Indiana", "Mississippi", "Illinois",
@@ -7,3 +11,11 @@ states_of_america = ["Delaware", "Pennsylvania", "New Jersey", "Georgia", "Conne
                      "New Mexico", "Arizona", "Alaska", "Hawaii"]
 
 print(states_of_america)
+
+fruits = ["Strawberries", "Nectarines", "Apples", "Grapes", "Peaches", "Cherries", "Pears"]
+vegetables = ["Spinach", "Kale", "Tomatoes", "Celery", "Potatoes"]
+
+dirty_dozen = [fruits, vegetables]
+
+# you have two lists, first [] chooses the list, then the next [] chooses the variable.
+print(dirty_dozen[1][1])
