@@ -8,9 +8,9 @@ print(range(1, 10))
 total_exam_score = sum(student_scores)
 print(total_exam_score)
 
-sum = 0
+sum_of = 0
 for score in student_scores:
-    sum += score
+    sum_of += score
 
 print(sum)
 
