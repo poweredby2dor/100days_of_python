@@ -67,10 +67,8 @@ used_chars = []
 for i in range(0, length):
     placeholder.append("_")
 
-# to be removed
+print("Welcome to a game of Hangman!\nThis is your word:")
 print(''.join(placeholder))
-
-print("Welcome to a game of Hangman!")
 
 # Use a while loop to let the user guess again
 while not game_over:
@@ -85,19 +83,21 @@ while not game_over:
     elif guess in placeholder:
         if "_" not in placeholder:
             game_over = True
-            print("You won! Great job!")
+            print("\nYou won! Great job!")
         else:
-            print("You got one!\n\n\n\n\n")
-            print(''.join(placeholder))
+            print("\nYou got one!\n")
             print(stages[6 - attempts])
+            print(''.join(placeholder))
     else:
         attempts -= 1
         print(stages[6 - attempts])
+        print(''.join(placeholder))
         if attempts == 0:
             game_over = True
-            print("You've been HUNG!")
+            print("\nYou've been HUNG!")
         else:
-            print("Oops, try again!\n\n\n\n\n")
+            print("Oops, try again!\n")
+            print(stages[6 - attempts])
             print(''.join(placeholder))
 
     used_chars.append(guess)
