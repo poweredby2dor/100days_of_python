@@ -9,6 +9,7 @@ word_list = ["aardvark", "baboon", "camel"]
 word = list(random.choice(word_list))
 length = len(word)
 attempts = length
+game_over = False
 
 placeholder = []
 used_chars = []
@@ -21,7 +22,7 @@ print(''.join(placeholder))
 print("Welcome to a game of Hangman!")
 
 # Use a while loop to let the user guess again
-while attempts > 0:
+while not game_over:
     guess = input("\nChoose a letter: ").lower()
 
     for i in range(0, length):
@@ -35,10 +36,14 @@ while attempts > 0:
         print(''.join(placeholder))
     else:
         attempts -= 1
-        print("Oops, yry again!\n\n\n\n\n")
+        print("Oops, try again!\n\n\n\n\n")
         print(''.join(placeholder))
 
     used_chars.append(guess)
 
-else:
-    print("You've been HUNG!")
+    if attempts == 0:
+        game_over = True
+        print("You've been HUNG!")
+    elif "_" not in placeholder:
+        game_over = True
+        print("You won! Great job!")
