@@ -2,12 +2,12 @@
 This module contains an exercise for 100 Days of Python
 """
 import random
-import hangman_words
+from hangman_words import word_list
 import hangman_art
 
 # 6 - let the player know how many lives left
 
-word = list(random.choice(hangman_words.word_list))
+word = list(random.choice(word_list))
 length = len(word)
 attempts = 6
 game_over = False
@@ -43,9 +43,10 @@ while not game_over:
         print(''.join(placeholder))
         if attempts == 0:
             game_over = True
-            print("\nYou've been HUNG!")
+            print(f"\nYou've been HUNG!\n The word was {''.join(word)}")
         else:
             print(f"Oops, try again! You've lost a life!\n Lives left: {attempts}")
+            # These were here but do not belong anymore. What now ?
             # print(hangman_art.stages[attempts])
             # print(''.join(placeholder))
 
