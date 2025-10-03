@@ -28,5 +28,5 @@ while direction != "no":
 
     caesar(original_text=text, shift_amount=shift, encode_decode=direction)
 
-    if input("Type yes if you want to go again.\nOtherwise type no\n") == "no":
+    if input("Type yes if you want to go again.\nOtherwise type no\n").lower() == "no":
         direction = "no"
