@@ -1,12 +1,12 @@
 """
 This module contains an exercise for 100 Days of Python
 """
-import art
+from art import logo
 
 bidders = {}
 run_input = True
 
-print(art.logo)
+print(logo)
 
 while run_input:
     name = input("Tell me your name:\n")
