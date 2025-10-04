@@ -1,3 +1,10 @@
+"""
+This module contains an exercise for 100 Days of Python
+"""
+import art
+
+
+
 # TODO-1: Ask the user for input
 # TODO-2: Save data into dictionary {name: price}
 # TODO-3: Whether if new bids need to be added
