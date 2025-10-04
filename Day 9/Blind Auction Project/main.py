@@ -17,4 +17,4 @@ while run_input:
 
 winner = max(bidders, key=bidders.get)
 
-print(f"The bid's winner is {winner} with a bid of {bidders[winner]}$")
+print(f"\nThe bid's winner is {winner} with a bid of {bidders[winner]}$")
