@@ -10,7 +10,7 @@ print(art.logo)
 
 while run_input:
     name = input("Tell me your name:\n")
-    offer = int(input("Tell me your bid:\n"))
+    offer = int(input("Tell me your bid:\n$"))
     bidders[name] = offer
     if input("Is there another bidder?\n").lower() == "no":
         run_input = False
