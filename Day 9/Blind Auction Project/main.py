@@ -15,6 +15,10 @@ while run_input:
     if input("Is there another bidder?\n").lower() == "no":
         run_input = False
 
-winner = max(bidders, key=bidders.get)
 
-print(f"\nThe bid's winner is {winner} with a bid of {bidders[winner]}$")
+def find_highest_bidder(bidding_dictionary):
+    winner = max(bidding_dictionary, key=bidding_dictionary.get)
+    print(f"\nThe bid's winner is {winner} with a bid of {bidding_dictionary[winner]}$")
+
+
+find_highest_bidder(bidders)
