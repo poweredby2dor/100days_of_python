@@ -1,7 +1,17 @@
-def format_name(f_name, l_name):
-    formated_f_name = f_name.title()
-    formated_l_name = l_name.title()
-    return f"{formated_f_name} {formated_l_name}"
+"""
+This module contains an exercise for 100 Days of Python
+"""
+
+f_name = input("Please give me your First Name: ")
+l_name = input("Please give me your Last Name: ")
 
 
-print(format_name("AnGEla", "YU"))
+def format_name(first, last):
+    if first == "" or last == "":
+        return "You did not provide valid inputs"
+    formatted_f_name = first.title()
+    formatted_l_name = last.title()
+    return f"{formatted_f_name} {formatted_l_name}"
+
+
+print(format_name(f_name, l_name))
