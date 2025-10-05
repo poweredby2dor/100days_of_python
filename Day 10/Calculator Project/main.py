@@ -7,6 +7,7 @@ print(logo)
 loop = True
 value1 = int(input("Provide a first number:\n "))
 
+
 def add(n1, n2):
     return n1 + n2
 
