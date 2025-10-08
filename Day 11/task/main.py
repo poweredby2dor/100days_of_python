@@ -12,6 +12,11 @@ player_wants_to_play = False
 
 
 def start_game(first_game):
+    """
+    Start game setup
+    :param first_game: boolean to know if it is the first game
+    :return:
+    """
     global player_wants_to_play
     if first_game:
         play = input("\n\nDo you want to play a game of Blackjack? Type 'y' or 'n'\n")
@@ -36,6 +41,10 @@ def start_game(first_game):
 
 
 def run_game():
+    """
+    Main game features
+    :return:
+    """
     check_cards(False)
 
     play = input(f"   Your score {sum(player)}, type 'y' to get another card, type 'n' to pass:\n")
@@ -99,6 +108,11 @@ def evaluate_cards():
 
 
 def check_cards(natural_blackjack):
+    """
+    Checks the cards / scores
+    :param natural_blackjack: boolean to know if it is a natural blackjack
+    :return:
+    """
     if sum(player) == 21 and sum(dealer) == 21:
         print("Push. It's a tie.")
     elif sum(player) == 21:
