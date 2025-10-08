@@ -69,6 +69,10 @@ def run_game():
 
 
 def restart_game():
+    """
+    Restarts the game by clearing cards and calling the start_game function
+    :return:
+    """
     global player_wants_to_play
     player_wants_to_play = False
     player.clear()
@@ -77,6 +81,10 @@ def restart_game():
 
 
 def evaluate_cards():
+    """
+    Evaluates cards and determines who has more points
+    :return:
+    """
     if sum(player) > sum(dealer):
         show_cards(False)
         print(f"Player wins!\n With {sum(player)} points versus {sum(dealer)} points on the house.\n\n\n")
@@ -109,12 +117,22 @@ def check_cards(natural_blackjack):
 
 
 def show_cards(and_restart):
+    """
+    Prints cards for both player and dealer.
+    :param and_restart: boolean to call the restart_game function
+    :return:
+    """
     print(f"House had {dealer} and you had {player}\n")
     if and_restart:
         restart_game()
 
 
 def dealer_draws(also_player):
+    """
+    Function to check if the dealer can draw a card. Print differs if the player also has received a card.
+    :param also_player: boolean to know if the player also received a card
+    :return:
+    """
     if sum(dealer) < 17 and sum(player) <= 21:
         dealer.append(random.choice(cards))
         if also_player:
