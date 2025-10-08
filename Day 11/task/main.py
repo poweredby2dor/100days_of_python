@@ -41,18 +41,27 @@ def run_game():
     play = input(f"   Your score {sum(player)}, type 'y' to get another card, type 'n' to pass:\n")
     if play == "y":
         player.append(random.choice(cards))
+
+        # Dealer's turn
+        dealer_draws(True)
+
+        if sum(player) > 21 and 11 in player:
+            print("###\nDEBUG\n###")
+
         if sum(player) > 21:
             print(f"{sum(player)} points, player loses, house wins.")
         elif sum(player) == 21 and sum(dealer) < 21:
-            # TODO Evaluate if the dealer can draw safely?
             print("Blackjack! Player wins.")
         elif sum(dealer) == 21:
             print("House has Blackjack!")
+        elif sum(dealer) > 21:
+            print(f"You win with {sum(player)} points. House went over.")
 
         if sum(player) > 21 or (sum(player) == 21 and sum(dealer) < 21) or sum(dealer) > 21:
             show_cards(and_restart=True)
 
     elif play == "n":
+        dealer_draws(False)
         evaluate_cards()
     else:
         print("I'm sorry, I didn't catch that...")
@@ -103,6 +112,19 @@ def show_cards(and_restart):
     print(f"House had {dealer} and you had {player}\n")
     if and_restart:
         restart_game()
+
+
+def dealer_draws(also_player):
+    if sum(dealer) < 17 and sum(player) <= 21:
+        dealer.append(random.choice(cards))
+        if also_player:
+            print("Dealer gives you a card and also deals a card to the house.")
+        else:
+            print("Dealer deals a card to the house.")
+    elif also_player:
+        print("Dealer gives you a card, then stands.")
+    else:
+        print("Dealers stands.")
 
 
 # Code runs here
