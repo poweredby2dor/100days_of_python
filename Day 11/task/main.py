@@ -161,5 +161,6 @@ def dealer_draws(also_player):
 
 # Code runs here
 start_game(first_game=True)
+# TODO Bring input function here, maybe fix global variable best practice
 while player_wants_to_play:
     run_game()
