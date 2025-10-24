@@ -50,7 +50,10 @@ def ask_user(a, b):
     print(f"Compare A: {a["name"]}, a/n {a["description"]}, from {a["country"]}")
     print(vs)
     print(f"Against B: {b["name"]}, a/n {b["description"]}, from {b["country"]}")
-    choice = input("Who has more followers? Type 'A' or 'B'").lower()
+
+    choice = input("Who has more followers? Type 'A' or 'B': ").lower()
+    if choice not in ["a", "b"]:
+        choice = input("Typo? Who has more followers? Type 'A' or 'B': ").lower()
 
     if choice == "a":
         if a["follower_count"] > b["follower_count"]:
@@ -59,13 +62,16 @@ def ask_user(a, b):
         else:
             print(f"\nYou are wrong, {a["name"]} with {a["follower_count"]} million followers has less than {b["name"]} with {b["follower_count"]} millions.\n")
             return "exit"
-    else:
+    elif choice == "b":
         if b["follower_count"] > a["follower_count"]:
             print(f"\nYou are right, {b["name"]} has {b["follower_count"]} million followers, more than {a["name"]} with {a["follower_count"]} millions.\n")
             return b
         else:
             print(f"\nYou are wrong, {b["name"]} with {b["follower_count"]} million followers has less than {a["name"]} with {a["follower_count"]} millions.\n")
             return "exit"
+    else:
+        print(f"Typo detected [{choice}], exiting game...")
+        return "exit"
 
 
 print(logo)
