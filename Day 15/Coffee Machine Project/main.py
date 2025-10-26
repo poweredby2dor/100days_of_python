@@ -15,6 +15,8 @@ def query_user():
     if choice == "report":
         for item in resources:
             print(f"{item.capitalize()} left: {resources[item]}")
+    if choice == "off":
+        print("\n\nMachine shutting down as per request.\n\n")
     while choice not in MENU:
         choice = query_user()[0]
 
@@ -83,7 +85,7 @@ def process_order(product, change, levels):
 def resource_check(product, levels):
     ingredient_empty = []
     for item in MENU[product]["ingredients"]:
-        if levels[item] < MENU[product]["ingredients"][item]:
+        if levels[item] <= MENU[product]["ingredients"][item]:
             ingredient_empty.append(item)
 
     if ingredient_empty:
