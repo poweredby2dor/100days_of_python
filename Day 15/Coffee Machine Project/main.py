@@ -3,6 +3,7 @@ This module contains an exercise for 100 Days of Python
 """
 
 from menu import MENU, resources
+PROFIT = 0
 
 
 def query_user():
@@ -10,11 +11,13 @@ def query_user():
     Function to ask user what to order
     :return:
     """
+    global PROFIT
     choice = input("\nWhat would you like? (espresso/latte/cappuccino):\n")
 
     if choice == "report":
         for item in resources:
             print(f"{item.capitalize()} left: {resources[item]}")
+        print(f"Cash in machine: ${PROFIT}")
     if choice == "off":
         print("\n\nMachine shutting down as per request.\n\n")
     while choice not in MENU:
@@ -31,20 +34,22 @@ def process_coins(product, old_cash, levels):
     :param levels:
     :return:
     """
+    global PROFIT
     if product not in MENU:
         print("[E] Program error, exiting")
         exit()
     else:
         cost = MENU[product]["cost"]
-        print(f"A {product.capitalize()} costs: ${cost}")
+        print(f"A {product.capitalize()} costs: ${cost}. Your current credit: ${old_cash}.")
 
-        cash = float(input("How many quarters? ")) * 0.25 + old_cash
-        cash = float(input("How many dimes? ")) * 0.1 + cash
-        cash = float(input("How many nickles? ")) * 0.05 + cash
-        cash = float(input("How many pennies? ")) * 0.01 + cash
+        cash = int(input("How many quarters? ")) * 0.25 + old_cash
+        cash = int(input("How many dimes? ")) * 0.1 + cash
+        cash = int(input("How many nickles? ")) * 0.05 + cash
+        cash = int(input("How many pennies? ")) * 0.01 + cash
 
         if cash >= cost:
             levels = process_order(product, cash - cost, levels)
+            PROFIT += cost
         else:
             choice = input(f"Sorry, that's not enough money. A {product.capitalize()} is {cost}. Please add another ${cost-cash}. Thank you.\nType 'refund' for a full refund.")
             if choice == "refund":
