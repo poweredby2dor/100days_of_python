@@ -2,16 +2,19 @@
 This module contains an exercise for 100 Days of Python
 """
 
-# Create a Question class with a __init()__ method with 2 attributes: text and answer attribute.
+
+from question_model import Question
+from data import question_data
+
+question_bank = []
+
+for question in question_data:
+    question_text = question["text"]
+    question_answer = question["answer"]
+
+    new_question = Question(q_text=question_text, q_answer=question_answer)
+    question_bank.append(new_question)
 
 
-class Question:
-    def __init__(self, q_text, q_answer):
-        self.question = q_text
-        self.answer = q_answer
-        print("Question class has been created.")
-
-
-new_q = Question("text", "answer")
-
-print(new_q.question)
+print(question_bank) # print whole list
+print(question_bank[0].answer) # selective print
